@@ -4,11 +4,11 @@ public class MinMax {
     public static void main(String[] args){
         System.out.println("Implementing Min Max using java generics");
         System.out.print("TC1: Largest in first position: ");
-        System.out.println(findMaxNumber(5,4,3));
+        System.out.println(findMaxNumber(5.2F, 4.2F, 3.2F));
         System.out.print("TC2: Largest in second position: ");
-        System.out.println(findMaxNumber(4,5,3));
+        System.out.println(findMaxNumber(4.2F,5.2F,3.2F));
         System.out.print("TC3: Largest in third position: ");
-        System.out.println(findMaxNumber(3,4,5));
+        System.out.println(findMaxNumber(3.2F,4.1F,5.2F));
     }
 
     /*
@@ -18,6 +18,22 @@ public class MinMax {
      */
     public static Integer findMaxNumber(Integer num1, Integer num2 , Integer num3){
         Integer max = num1;
+        if(num2.compareTo(max)>0){
+            max=num2;
+        }
+        if(num3.compareTo(max)>0){
+            max=num3;
+        }
+        return max;
+    }
+
+    /*
+        @desc: finds the maximum value among three:
+        @params: takes three float value
+        @return: float
+     */
+    public static Float findMaxNumber(Float num1, Float num2 , Float num3){
+        Float max = num1;
         if(num2.compareTo(max)>0){
             max=num2;
         }
