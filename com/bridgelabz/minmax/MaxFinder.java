@@ -1,22 +1,20 @@
 package com.bridgelabz.minmax;
-
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 /*
  desc: it provides maximum value for same type of arguments
  */
 public class MaxFinder<T extends Comparable<T>> {
-    private final T var1;
-    private final T var2;
-    private final T var3;
+    private final List<T> values;
 
     /*
-        @desc: constructor for MaxFinder class
+        @desc: parameterized constructor for MaxFinder class
         @params: three variables for type T
         @return: none
      */
-    public MaxFinder(T var1, T var2, T var3){
-        this.var1=var1;
-        this.var2=var2;
-        this.var3=var3;
+    public MaxFinder(T... values){
+        this.values = Arrays.asList(values);
     }
     /*
         @desc: provides maximum out of three
@@ -24,14 +22,8 @@ public class MaxFinder<T extends Comparable<T>> {
         @return: T
      */
     public T findMax(){
-        T max = var1;
-        if(var2.compareTo(max)>0){
-            max=var2;
-        }
-        if(var3.compareTo(max)>0){
-            max=var3;
-        }
-        return max;
+        Optional<T> max = values.stream().max(Comparable::compareTo);
+        return max.orElse(null);
     }
 
     /*
