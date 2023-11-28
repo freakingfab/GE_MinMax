@@ -31,7 +31,7 @@ public class MaxFinder<T extends Comparable<T>> {
         @params:none
         @return: T
      */
-    public T testFindMax(){
-        return findMax();
+    public void testFindMax(){
+        System.out.println("The maximum is: " + findMax());
     }
 }
